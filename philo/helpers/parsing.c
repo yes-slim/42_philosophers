@@ -1,26 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/28 21:59:20 by yes-slim         ###   ########.fr       */
+/*   Created: 2023/05/28 21:25:49 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/05/28 22:00:15 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+int	parsing(int ac, char ** av)
 {
-	if (ac == 5 || ac == 6)
+	int i;
+	int j;
+
+	i = 0;
+	j = 1;
+	while (av[j])
 	{
-		if (!parsing(ac, av))
-			return (0);
-		printf("parsing done\n");
-		return (1);
+		while (av[j][i])
+		{
+			if (av[j][i] == '+')
+				i++;
+			if (!ft_isdigit(av[j][i]))
+			{
+				ft_error(2);
+				return (0);
+			}
+			i++;
+		}
+		j++;
 	}
-	ft_error(1);
-	return (0);
+	j = 0;
+	while (j < ac)
+	{
+		if (ft_atoi(av[j]) < 0 || ft_atoi(av[j]) > INT_MAX)
+		{
+			ft_error(2);
+			return (0);
+		}
+		j++;
+	}
+	return (1);
 }

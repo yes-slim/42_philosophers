@@ -1,26 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   parsing_helpers.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/28 21:59:20 by yes-slim         ###   ########.fr       */
+/*   Created: 2023/05/28 21:00:00 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/05/28 21:47:57 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+int	ft_atoi(const char *str)
 {
-	if (ac == 5 || ac == 6)
+	int		i;
+	int		si;
+	long	res;
+
+	i = 0;
+	res = 0;
+	si = 1;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (!parsing(ac, av))
-			return (0);
-		printf("parsing done\n");
-		return (1);
+		if (str[i] == '-')
+			si *= -1;
+		i++;
 	}
-	ft_error(1);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+	return ((int)res * si);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
 	return (0);
 }
