@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/28 17:49:56 by yes-slim          #+#    #+#              #
-#    Updated: 2023/05/28 18:43:40 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/05/28 18:47:32 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ CFLAGS = -Wall -Werror -Wextra -I includes -c -fsanitize=thread -g3
 NAME = philo
 DEL = rm -f
 
-SRCS =	$(addsuffix .c, $(addprefix , $())) \
+HELPERS = 
+SRCS =	$(addsuffix .c, $(addprefix helpers/, $(HELPERS))) \
+		$(addsuffix .c, $(addprefix , $())) \
 
 OBJ = $(SRCS:.c=.o)
 
@@ -22,8 +24,6 @@ OBJ = $(SRCS:.c=.o)
 	@cc $(CFLAGS) $< -o $@
 
 all : $(NAME)
-
-bonus : $(NAME_B)
 
 $(NAME) : $(OBJ) philo.c
 	@ar -rc philo.a $(OBJ)
