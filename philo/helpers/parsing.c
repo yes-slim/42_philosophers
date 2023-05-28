@@ -6,11 +6,21 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:25:49 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/28 22:00:15 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/28 22:04:42 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	check_isdigit(char *av)
+{
+	
+}
+
+int	check_ispositif(char *av)
+{
+	
+}
 
 int	parsing(int ac, char ** av)
 {
