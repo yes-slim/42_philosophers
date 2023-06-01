@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:25:49 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/01 16:00:51 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:03:02 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	check_isdigit(char *av)
 	i = 0;
 	while (av[i])
 	{
+		if (av[i] == '+')
+			i++;
 		if (!ft_isdigit(av[i]))
 			return (0);
 		i++;
