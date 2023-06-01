@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:53:36 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/28 21:50:10 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:59:24 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 int		ft_atoi(const char *str);
 void	ft_error(int err);
 int		ft_isdigit(int c);
-int		parsing(int ac, char ** av);
+int		parsing(char ** av);
 /*--------------------------------*/
 
 #endif

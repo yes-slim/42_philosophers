@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:25:49 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/28 22:04:42 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:00:51 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,36 @@
 
 int	check_isdigit(char *av)
 {
-	
-}
-
-int	check_ispositif(char *av)
-{
-	
-}
-
-int	parsing(int ac, char ** av)
-{
-	int i;
-	int j;
+	int	i;
 
 	i = 0;
+	while (av[i])
+	{
+		if (!ft_isdigit(av[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	parsing(char ** av)
+{
+	int j;
+
 	j = 1;
 	while (av[j])
 	{
-		while (av[j][i])
+		if (!check_isdigit(av[j]))
 		{
-			if (av[j][i] == '+')
-				i++;
-			if (!ft_isdigit(av[j][i]))
-			{
-				ft_error(2);
-				return (0);
-			}
-			i++;
+			ft_error(2);
+			return (0);
 		}
 		j++;
 	}
-	j = 0;
-	while (j < ac)
+	j = 1;
+	while (av[j])
 	{
-		if (ft_atoi(av[j]) < 0 || ft_atoi(av[j]) > INT_MAX)
+		if (ft_atoi(av[j]) < 0)
 		{
 			ft_error(2);
 			return (0);

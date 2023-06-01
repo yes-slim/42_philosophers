@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:00:00 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/28 21:47:57 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:58:41 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (res > INT_MAX)
+			return (-1);
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}

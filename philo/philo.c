@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/28 22:02:42 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:59:28 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 		ft_error(1);
 		return (0);
 	}
-	if (!parsing(ac, av))
+	if (!parsing(av))
 		return (0);
 	printf("parsing done\n");
 }
