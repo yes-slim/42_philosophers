@@ -6,12 +6,12 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/28 17:49:56 by yes-slim          #+#    #+#              #
-#    Updated: 2023/06/09 10:43:35 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/06/15 13:36:20 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 HEADER = -I includes
-CFLAGS = -Wall -Werror -Wextra $(HEADER) -c #-fsanitize=thread -g3
+CFLAGS = -Wall -Werror -Wextra $(HEADER) -lpthread -c -fsanitize=thread -g3
 NAME = philo
 DEL = rm -f
 
