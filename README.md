@@ -2,6 +2,7 @@
 
 ---
 
-`I never thought philosophy would be so deadly`
+<div align="center">
+I never thought philosophy would be so deadly.
 
 ---
