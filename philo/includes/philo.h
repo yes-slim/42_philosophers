@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:53:36 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/15 15:23:05 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/16 08:51:23 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 # include <sys/time.h>
 # include <pthread.h>
 
-/*============================*/
-//LIBFT
-/*============================*/
 //HELPERS
+int		ft_atoi(const char *str);
 int		parsing(char ** av);
+int		ft_error(int err);
+long	get_time(int start);
 /*============================*/
 
 #endif

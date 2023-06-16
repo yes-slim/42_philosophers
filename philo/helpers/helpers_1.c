@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   get_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 20:54:05 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/16 08:35:19 by yes-slim         ###   ########.fr       */
+/*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/06/16 08:29:45 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_error(int err)
+long	get_time(int start)
 {
-	if (err == 1)
-		printf("Error: Wrong number of arguments !\n");
-	if (err == 2)
-		printf("Error: Invalide value !\n");
-	if (err == 3)
-		printf("Error: Threads creation failed !\n");
-	return (0);
+	struct timeval	time;
+	long			t;
+
+	gettimeofday(&time, NULL);
+	t = (time.tv_sec * 1000) + (time.tv_usec / 1000) - start;
+	return (t);
 }
