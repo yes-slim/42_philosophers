@@ -6,13 +6,13 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/28 17:49:56 by yes-slim          #+#    #+#              #
-#    Updated: 2023/06/16 10:27:59 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/06/16 16:02:34 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #=================variables=========================#
 HEADER = -I includes
-THREAD = -pthread -fsanitize=thread
+THREAD = -pthread -fsanitize=thread	
 CFLAGS = -Wall -Werror -Wextra $(HEADER) -c $(THREAD)
 NAME = philo
 DEL = rm -f
@@ -31,7 +31,7 @@ all : $(NAME)
 $(NAME) : $(OBJ) philo.c
 	@ar -rc philo.a $(OBJ)
 	@cc philo.c philo.a $(HEADER) $(THREAD) -o $(NAME)
-	@echo $(cyan)$(underline)"philo is ready to use" $(reset)
+	@echo $(cyan)$(underline)"philo is ready to run" $(reset)
 
 clean :
 	@$(DEL) $(OBJ) philo.a
