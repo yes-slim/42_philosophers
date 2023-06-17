@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:25:49 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/16 08:51:44 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/16 22:05:12 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,12 @@ int check_val(char *av)
 	return (1);
 }
 
-int	parsing(char **av)
+int	parsing(int ac, char **av)
 {
 	int j;
 
+	if (ac < 5 || ac > 6)
+		return (ft_error(1));
 	j = 1;
 	while (av[j])
 	{

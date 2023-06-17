@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/16 21:27:29 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/17 09:04:32 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@ int	main(int ac, char **av)
 {	
 	t_philo	*philo;
 	
-	if (ac == 5 || ac == 6)
-	{
-		if (!parsing(av))
-			return (0);
-	}
+	if (!parsing(ac, av))
+		return (0);
 	philo = malloc(sizeof(t_philo));
-	init_philo(philo, av);
+	if (!philo)
+		return (ft_error(5));
+	if (init_philo(philo, av))
+		philo->is_over = 1;
+	while (1)
+	{
+		if (philo->is_over)
+			break ;
+	}
+	free_philo(philo);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:53:36 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/16 21:14:10 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/17 08:48:10 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,19 @@ typedef struct p_philo {
 	int				time_to_sleep;
 	int				nb_eat;
 	long			start;
+	int				is_over;
 	pthread_mutex_t	*forks;
 	pthread_t 		*philo;
 } t_philo;
 
 /*===================helpers===============*/
 int		ft_atoi(const char *str);
-int		parsing(char ** av);
+int		parsing(int ac, char **av);
 int		ft_error(int err);
 long	get_time(long start);
-void	ft_usleep(long time);
-void	init_philo(t_philo *philo, char **av);
+void	ft_usleep(long time, long start);
+int		init_philo(t_philo *philo, char **av);
+void	free_philo(t_philo *philo);
 /*==========================================*/
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 20:54:05 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/16 08:35:19 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/17 08:49:37 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,9 @@ int	ft_error(int err)
 		printf("Error: Invalide value !\n");
 	if (err == 3)
 		printf("Error: Threads creation failed !\n");
+	if (err == 4)
+		printf("Error: Mutex creation failed !\n");
+	if (err == 5)
+		printf("Error: Mallocation failed !\n");
 	return (0);
 }
