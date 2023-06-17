@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/17 10:17:42 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:04:23 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	init_philo(t_philo *philo, char **av)
 	philo->is_over = 0;
 	philo->forks = malloc(sizeof(pthread_mutex_t) * (philo->nb_philo));
 	if (!philo->forks)
-		ft_error(4);
+		return (ft_error(4));
 	philo->philo = malloc(sizeof(pthread_t) * (philo->nb_philo));
 	if (!philo->philo)
-		ft_error(3);
+		return (ft_error(3));
 	return (1);
 }
 
