@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/17 08:50:34 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/17 10:17:42 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ long	get_time(long start)
 
 void	ft_usleep(long time, long start)
 {
-	while (get_time(start) < time)
+	long	t;
+	
+	t = get_time(start);
+	while (get_time(start) - t < time)
 		usleep(100);
 }
 

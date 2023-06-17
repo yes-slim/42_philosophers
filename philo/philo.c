@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/17 09:04:32 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/17 10:18:54 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 	philo = malloc(sizeof(t_philo));
 	if (!philo)
 		return (ft_error(5));
-	if (init_philo(philo, av))
+	if (!init_philo(philo, av))
 		philo->is_over = 1;
 	while (1)
 	{
