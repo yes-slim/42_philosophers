@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/28 17:49:56 by yes-slim          #+#    #+#              #
-#    Updated: 2023/06/17 09:15:17 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/06/17 20:57:30 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@
 HEADER = -I includes
 THREAD = -pthread -fsanitize=thread	
 CFLAGS = -Wall -Werror -Wextra $(HEADER) -c $(THREAD)
-NAME = philo
-DEL = rm -f
+NAME   = philo
+DEL    = rm -f
 #=================files=============================#
 HELPERS = ft_error parsing helpers_1
-SRCS =	$(addsuffix .c, $(addprefix helpers/, $(HELPERS))) \
-		$(addsuffix .c, $(addprefix , $()))
-OBJ = $(SRCS:.c=.o)
+SRCS    = $(addsuffix .c, $(addprefix helpers/, $(HELPERS))) \
+		  $(addsuffix .c, $(addprefix , $()))
+OBJ     = $(SRCS:.c=.o)
 #=================compile===========================#
 %.o : %.c
 	@echo $(grey)$(italic)"	~Compiling $<"$(reset)
