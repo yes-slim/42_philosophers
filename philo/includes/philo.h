@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:53:36 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/17 09:28:27 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:18:17 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 # include <pthread.h>
 
 /*===================struct================*/
+typedef struct p_data {
+	int		id;
+	int		nb_eat;
+	long	last_eat;
+}	t_data;
+
 typedef struct p_philo {
 	int				nb_philo;
 	int				time_to_die;
@@ -31,8 +37,9 @@ typedef struct p_philo {
 	long			start;
 	int				is_over;
 	pthread_mutex_t	*forks;
-	pthread_t 		*philo;
-} t_philo;
+	pthread_t		*philo;
+	t_data			*p_data;
+}	t_philo;
 
 /*===================helpers===============*/
 int		ft_atoi(const char *str);
