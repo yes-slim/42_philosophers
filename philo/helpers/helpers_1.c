@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/18 17:21:57 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:42:44 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,7 @@ void	free_philo(t_philo *philo)
 		free(&philo->p_data[philo->nb_philo]);
 		philo->nb_philo--;
 	}
+	free(philo->forks);
+	free(philo->philo);
+	free(philo->p_data);
 }
