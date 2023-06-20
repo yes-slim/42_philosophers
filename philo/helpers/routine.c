@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:21:25 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/20 23:55:57 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:56:44 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	mutex_control(t_data *philo, char stat)
 	if (stat == 'l')
 	{
 		pthread_mutex_lock(&philo->m_philo->forks[philo->right]);
-		ft_print(index, "has taken a fork", -1);
+		ft_print(philo->m_philo, philo->id, "has taken a fork", -1);
 		pthread_mutex_lock(&philo->m_philo->forks[philo->left]);
 		ft_print(philo->m_philo, philo->id, "has taken a fork", -1);
 	}
