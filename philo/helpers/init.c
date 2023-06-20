@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/20 18:22:46 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:49:45 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	init_data(t_philo *philo)
 	while (i <= philo->nb_philo)
 	{
 		philo->p_data[i].id = j;
+		philo->p_data[i].right = i;
+		philo->p_data[i].left = i % philo->nb_philo + 1;
 		philo->p_data[i].nb_eat = 0;
 		philo->p_data[i].last_eat = philo->start;
 		philo->p_data[i].m_philo = philo;
