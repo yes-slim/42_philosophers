@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:21:25 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/20 23:56:44 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:58:08 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ void	*routine(void *arg)
 	ft_print(philo->m_philo, philo->id, "is eating", -1);
 	ft_usleep(philo->m_philo->time_to_eat, philo->last_eat);
 	mutex_control(philo, 'u');
+	ft_print(philo->m_philo, philo->id, "is sleeping", -1);
+	ft_usleep(philo->m_philo->time_to_sleep, philo->last_eat);
+	ft_print(philo->m_philo, philo->id, "is thinking", -1);
 	philo->nb_eat++;
 	return (NULL);
 }
