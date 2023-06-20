@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/20 18:14:43 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:11:35 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ void	ft_print(t_philo *philo, int id, char *str, int is_over)
 	pthread_mutex_unlock(&philo->print);
 }
 
-void	check_if_dead(t_data *philo)
+int	check_if_dead(t_data *philo)
 {
 	if (get_time(philo->last_eat) > philo->m_philo->time_to_die)
 	{
 		philo->m_philo->is_over = 1;
 		ft_print(philo->m_philo, philo->id, "died", 1);
-		return ;
+		return (0);
 	}
-	return ;
+	return (1);
 }

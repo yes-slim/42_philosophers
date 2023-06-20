@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+philo/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:53:36 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/20 18:02:06 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/20 22:34:08 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <pthread.h>
 
 /*===================struct================*/
-
 typedef struct p_philo {
 	int				nb_philo;
 	int				time_to_die;
@@ -53,8 +52,8 @@ void	ft_usleep(long time, long start);
 int		init_philo(t_philo *philo, char **av);
 void	free_philo(t_philo *philo);
 void	check_for_nb_eat(t_philo *philo);
-void	check_if_dead(t_data *philo);
+int		check_if_dead(t_data *philo);
 void	*routine(void *arg);
-void	ft_print(t_philo *philo, int id, char *str , int is_over);
+void	ft_print(t_philo *philo, int id, char *str, int is_over);
 /*==========================================*/
 #endif

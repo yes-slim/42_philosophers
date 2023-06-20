@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/20 18:46:31 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:10:48 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int	main(int ac, char **av)
 		if (philo->is_over)
 			break ;
 		ft_unpair(philo);
-		philo->is_over = 1;
 	}
 	free_philo(philo);
 	return (0);
