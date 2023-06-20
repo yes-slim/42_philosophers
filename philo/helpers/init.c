@@ -1,34 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers_1.c                                        :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/18 17:42:44 by yes-slim         ###   ########.fr       */
+/*   Created: 2023/06/20 11:10:02 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/06/20 18:22:46 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long	get_time(long start)
+void	init_data(t_philo *philo)
 {
-	struct timeval	time;
-	long			t;
+	int	i;
+	int	j;
 
-	gettimeofday(&time, NULL);
-	t = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	return (t - start);
+	i = 0;
+	j = 1;
+	while (i <= philo->nb_philo)
+	{
+		philo->p_data[i].id = j;
+		philo->p_data[i].nb_eat = 0;
+		philo->p_data[i].last_eat = philo->start;
+		philo->p_data[i].m_philo = philo;
+		i++;
+		j++;
+	}
 }
 
-void	ft_usleep(long time, long start)
+void	init_mutex(t_philo *philo)
 {
-	long	t;
+	int	i;
 
-	t = get_time(start);
-	while (get_time(start) - t < time)
-		usleep(100);
+	i = 0;
+	while (i < philo->nb_philo)
+	{
+		pthread_mutex_init(&philo->forks[i], NULL);
+		i++;
+	}
 }
 
 int	init_philo(t_philo *philo, char **av)
@@ -51,19 +62,27 @@ int	init_philo(t_philo *philo, char **av)
 	philo->p_data = malloc(sizeof(t_data) * (philo->nb_philo));
 	if (!philo->p_data)
 		return (ft_error(5));
+	pthread_mutex_init(&philo->print, NULL);
+	init_data(philo);
+	init_mutex(philo);
 	return (1);
 }
 
 void	free_philo(t_philo *philo)
 {
-	while (philo->nb_philo)
+	int	i;
+
+	i = 0;
+	while (i < philo->nb_philo)
 	{
-		pthread_detach(philo->philo[philo->nb_philo]);
-		pthread_mutex_destroy(&philo->forks[philo->nb_philo]);
-		free(&philo->p_data[philo->nb_philo]);
-		philo->nb_philo--;
+		pthread_detach(philo->philo[i]);
+		pthread_mutex_destroy(&philo->forks[i]);
+		free(&philo->p_data[i]);
+		i++;
 	}
+	pthread_mutex_destroy(&philo->print);
 	free(philo->forks);
 	free(philo->philo);
 	free(philo->p_data);
+	free(philo);
 }

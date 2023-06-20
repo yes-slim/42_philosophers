@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:53:36 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/18 17:18:17 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:02:06 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@
 # include <pthread.h>
 
 /*===================struct================*/
-typedef struct p_data {
-	int		id;
-	int		nb_eat;
-	long	last_eat;
-}	t_data;
 
 typedef struct p_philo {
 	int				nb_philo;
@@ -37,9 +32,17 @@ typedef struct p_philo {
 	long			start;
 	int				is_over;
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	print;
 	pthread_t		*philo;
-	t_data			*p_data;
+	struct p_data	*p_data;
 }	t_philo;
+
+typedef struct p_data {
+	int				id;
+	int				nb_eat;
+	long			last_eat;
+	struct p_philo	*m_philo;
+}	t_data;
 
 /*===================helpers===============*/
 int		ft_atoi(const char *str);
@@ -49,6 +52,9 @@ long	get_time(long start);
 void	ft_usleep(long time, long start);
 int		init_philo(t_philo *philo, char **av);
 void	free_philo(t_philo *philo);
+void	check_for_nb_eat(t_philo *philo);
+void	check_if_dead(t_data *philo);
+void	*routine(void *arg);
+void	ft_print(t_philo *philo, int id, char *str , int is_over);
 /*==========================================*/
-
 #endif
