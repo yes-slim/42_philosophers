@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 17:50:58 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:25:48 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ void	ft_unpair(t_philo *philo)
 int	main(int ac, char **av)
 {	
 	t_philo	*philo;
+	int		i;
 
+	i = 0;
 	philo = malloc(sizeof(t_philo));
 	if (!philo)
 		return (ft_error(5));
@@ -56,8 +58,15 @@ int	main(int ac, char **av)
 	ft_pair(philo);
 	ft_unpair(philo);
 	while (1)
-		if (philo->is_over)
+	{
+		check_for_nb_eat(philo);
+		while (i < philo->nb_philo)
+			if (!check_if_dead(&philo->p_data[i++]))
+				break ;
+		i = 0;
+		if (philo->is_over == 1)
 			break ;
+	}
 	free_philo(philo);
 	return (0);
 }

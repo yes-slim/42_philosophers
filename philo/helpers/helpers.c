@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 18:02:13 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:00:42 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	check_for_nb_eat(t_philo *philo)
 	int	i;
 
 	i = 0;
+	if (philo->nb_eat == -1)
+		return ;
 	while (i < philo->nb_philo)
 	{
-		if (philo->p_data[i].nb_eat != philo->nb_eat)
+		if (philo->p_data[i].nb_eat < philo->nb_eat)
 			return ;
 		i++;
 	}
@@ -49,8 +51,8 @@ void	ft_print(t_philo *philo, int id, char *str, int is_over)
 {
 	pthread_mutex_lock(&philo->print);
 	printf("%ld %d %s\n", get_time(philo->start), id, str);
-	if (is_over == 1)
-		philo->is_over = 1;
+	if (!is_over)
+		return ;
 	pthread_mutex_unlock(&philo->print);
 }
 
@@ -59,7 +61,7 @@ int	check_if_dead(t_data *philo)
 	if (get_time(0) - philo->last_eat > philo->m_philo->time_to_die)
 	{
 		philo->m_philo->is_over = 1;
-		ft_print(philo->m_philo, philo->id, "died", 1);
+		ft_print(philo->m_philo, philo->id, "died", 0);
 		return (0);
 	}
 	return (1);

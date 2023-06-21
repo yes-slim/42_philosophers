@@ -6,13 +6,13 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/28 17:49:56 by yes-slim          #+#    #+#              #
-#    Updated: 2023/06/21 14:59:04 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/06/21 22:42:00 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #========================variables============================#
 HEADER  = -I includes
-THREAD  = -pthread	
+THREAD  = -pthread -fsanitize=thread
 CFLAGS  = -Wall -Werror -Wextra $(HEADER) -c $(THREAD)
 NAME    = philo
 DEL     = rm -f
