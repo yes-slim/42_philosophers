@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/20 23:10:48 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:22:55 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,12 @@ int	main(int ac, char **av)
 		return (0);
 	if (!init_philo(philo, av))
 		philo->is_over = 1;
+	ft_pair(philo);
+	usleep(100);
+	ft_unpair(philo);
 	while (1)
-	{
 		if (philo->is_over)
 			break ;
-		ft_pair(philo);
-		if (philo->is_over)
-			break ;
-		ft_unpair(philo);
-	}
 	free_philo(philo);
 	return (0);
 }
