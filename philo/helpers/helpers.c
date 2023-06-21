@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 23:15:51 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 23:46:16 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	check_for_nb_eat(t_philo *philo)
 	int	i;
 
 	i = 0;
-	pthread_mutex_lock(&philo->eat);
 	if (philo->nb_eat == -1)
 		return ;
+	pthread_mutex_lock(&philo->eat);
 	while (i < philo->nb_philo)
 	{
 		if (philo->p_data[i].nb_eat < philo->nb_eat)
@@ -64,10 +64,11 @@ void	ft_print(t_philo *philo, int id, char *str, int is_over)
 int	check_if_dead(t_data *philo)
 {
 	pthread_mutex_lock(&philo->m_philo->time);
-	if (get_time(0) - philo->last_eat > philo->m_philo->time_to_die)
+	if (get_time(0) - philo->last_eat >= philo->m_philo->time_to_die)
 	{
 		philo->m_philo->is_over = 1;
 		ft_print(philo->m_philo, philo->id, "died", 0);
+		pthread_mutex_unlock(&philo->m_philo->time);
 		return (0);
 	}
 	pthread_mutex_unlock(&philo->m_philo->time);
