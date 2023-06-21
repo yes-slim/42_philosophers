@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 19:07:39 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 23:16:26 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	init_philo(t_philo *philo, char **av)
 	if (!philo->p_data)
 		return (ft_error(5));
 	pthread_mutex_init(&philo->print, NULL);
+	pthread_mutex_init(&philo->time, NULL);
+	pthread_mutex_init(&philo->eat, NULL);
 	init_data(philo);
 	init_mutex(philo);
 	return (1);

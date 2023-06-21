@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:53:36 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 19:07:35 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 23:16:21 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ typedef struct p_philo {
 	long			start;
 	int				is_over;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	print;
 	pthread_t		*philo;
 	struct p_data	*p_data;
+	pthread_mutex_t	print;
+	pthread_mutex_t time;
+	pthread_mutex_t	eat;
 }	t_philo;
 
 typedef struct p_data {
