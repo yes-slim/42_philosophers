@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 14:22:55 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:50:58 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_pair(t_philo *philo)
 			usleep(100);
 		else
 			pthread_create(&philo->philo[i], NULL, routine, &philo->p_data[i]);
-		check_for_nb_eat(philo);
 	i++;
 	}
 }
@@ -39,7 +38,6 @@ void	ft_unpair(t_philo *philo)
 			usleep(100);
 		else
 			pthread_create(&philo->philo[i], NULL, routine, &philo->p_data[i]);
-		check_for_nb_eat(philo);
 		i++;
 	}
 }
@@ -56,7 +54,6 @@ int	main(int ac, char **av)
 	if (!init_philo(philo, av))
 		philo->is_over = 1;
 	ft_pair(philo);
-	usleep(100);
 	ft_unpair(philo);
 	while (1)
 		if (philo->is_over)

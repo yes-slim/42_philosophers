@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:21:25 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 14:26:41 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:50:30 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	mutex_control(t_data *philo, char stat)
 	}
 	else if (stat == 'u')
 	{
-		pthread_mutex_lock(&philo->m_philo->forks[philo->right]);
-		pthread_mutex_lock(&philo->m_philo->forks[philo->left]);
+		pthread_mutex_unlock(&philo->m_philo->forks[philo->left]);
+		pthread_mutex_unlock(&philo->m_philo->forks[philo->right]);
 	}
 }
 

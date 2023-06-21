@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 08:29:03 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/20 23:11:35 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:02:13 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_for_nb_eat(t_philo *philo)
 	i = 0;
 	while (i < philo->nb_philo)
 	{
-		if (philo->p_data[i].nb_eat < philo->nb_eat)
+		if (philo->p_data[i].nb_eat != philo->nb_eat)
 			return ;
 		i++;
 	}
@@ -49,14 +49,14 @@ void	ft_print(t_philo *philo, int id, char *str, int is_over)
 {
 	pthread_mutex_lock(&philo->print);
 	printf("%ld %d %s\n", get_time(philo->start), id, str);
-	if (is_over)
+	if (is_over == 1)
 		philo->is_over = 1;
 	pthread_mutex_unlock(&philo->print);
 }
 
 int	check_if_dead(t_data *philo)
 {
-	if (get_time(philo->last_eat) > philo->m_philo->time_to_die)
+	if (get_time(0) - philo->last_eat > philo->m_philo->time_to_die)
 	{
 		philo->m_philo->is_over = 1;
 		ft_print(philo->m_philo, philo->id, "died", 1);
