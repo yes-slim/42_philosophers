@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/22 08:07:53 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/22 08:47:38 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,11 @@ int	main(int ac, char **av)
 	while (1)
 	{
 		check_for_nb_eat(philo);
+		if (philo->is_over == 1)
+			return (free_philo(philo), 0);
 		while (i < philo->nb_philo)
 			if (!check_if_dead(&philo->p_data[i++]))
-				break ;
+				return (free_philo(philo), 0);
 		i = 0;
-		if (philo->is_over == 1)
-			break ;
 	}
-	free_philo(philo);
-	return (0);
 }
