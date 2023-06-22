@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:34:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 23:52:01 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/22 08:07:53 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_creat(t_philo *philo)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < philo->nb_philo)
 	{

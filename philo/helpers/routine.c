@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:21:25 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 23:47:35 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/22 08:09:04 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	*routine(void *arg)
 	philo = (t_data *)arg;
 	while (1)
 	{
-		if (philo->m_philo->nb_eat != -1 && philo->nb_eat == philo->m_philo->nb_eat)
+		if (philo->m_philo->nb_eat != -1
+			&& philo->nb_eat == philo->m_philo->nb_eat)
 			break ;
 		mutex_control(philo, 'l');
 		pthread_mutex_lock(&philo->m_philo->time);
