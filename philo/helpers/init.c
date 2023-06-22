@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/21 23:16:26 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/22 20:31:08 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,6 @@ void	free_philo(t_philo *philo)
 		i++;
 	}
 	pthread_mutex_destroy(&philo->print);
+	pthread_mutex_destroy(&philo->time);
+	pthread_mutex_destroy(&philo->eat);
 }
