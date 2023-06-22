@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:21:25 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/06/22 08:09:04 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/06/22 09:34:32 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	mutex_control(t_data *philo, char stat)
 	if (stat == 'l')
 	{
 		pthread_mutex_lock(&philo->m_philo->forks[philo->left]);
-		pthread_mutex_lock(&philo->m_philo->forks[philo->right]);
 		ft_print(philo->m_philo, philo->id, "has taken a fork", -1);
+		pthread_mutex_lock(&philo->m_philo->forks[philo->right]);
 		ft_print(philo->m_philo, philo->id, "has taken a fork", -1);
 	}
 	else if (stat == 'u')
@@ -35,8 +35,7 @@ void	*routine(void *arg)
 	philo = (t_data *)arg;
 	while (1)
 	{
-		if (philo->m_philo->nb_eat != -1
-			&& philo->nb_eat == philo->m_philo->nb_eat)
+		if (philo->m_philo->nb_eat != -1 && philo->nb_eat == philo->m_philo->nb_eat)
 			break ;
 		mutex_control(philo, 'l');
 		pthread_mutex_lock(&philo->m_philo->time);
